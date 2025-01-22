@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Site Properties Management</h2>
+    
+    <!-- Site Dropdown -->
+    <div class="mb-4">
+      <label for="siteDropdown" class="form-label">Select Site</label>
+      <select id="siteDropdown" class="form-select">
+        <option value="" disabled selected>Select a Site</option>
+        <!-- Dynamically populate site options -->
+        <option value="1">Site 1</option>
+        <option value="2">Site 2</option>
+      </select>
+    </div>
+    
+    <!-- Property Boxes -->
+    <div class="row">
+      <!-- Available Property Example -->
+      <div class="col-md-3">
+        <div class="property-box available">
+          <h5>Flat No 1</h5>
+          <p>1500 sqft, East Facing</p>
+          <p>Rate: ₹5000/sqft</p>
+          <button class="btn btn-success">Book</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="property-box available">
+          <h5>Flat No 2</h5>
+          <p>1500 sqft, East Facing</p>
+          <p>Rate: ₹5000/sqft</p>
+          <button class="btn btn-success">Book</button>
+        </div>
+      </div>
+      <!-- Sold Property Example -->
+      <div class="col-md-3">
+        <div class="property-box sold">
+          <h5>Flat No 3</h5>
+          <p>1200 sqft, North Facing</p>
+          <p>Rate: ₹4500/sqft</p>
+          <button class="btn btn-danger">Sold</button>
+        </div>
+      </div>
+      <div class="col-md-3"> 
+        <div class="property-box available">
+          <h5>Flat No 4</h5>
+          <p>1500 sqft, East Facing</p>
+          <p>Rate: ₹5000/sqft</p>
+          <button class="btn btn-success">Book</button>
+        </div>
+      </div>
+      <div class="col-md-3"> 
+      <div class="property-box available">
+        <h5>Flat No 5</h5>
+        <p>1500 sqft, East Facing</p>
+        <p>Rate: ₹5000/sqft</p>
+        <button class="btn btn-success">Book</button>
+      </div>
+    </div>
+
+      <!-- More properties can be added dynamically here -->
+    </div>
+  </div>

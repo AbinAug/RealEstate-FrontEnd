@@ -1,0 +1,90 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <div id="propertyList">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h5>Properties List</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bothered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Property Type</th>
+                                    <!-- <th scope="col">Facing</th>
+                                    <th scope="col">Total Area</th>
+                                    <th scope="col">Rate</th>
+                                    <th scope="col">Site Id</th> -->
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(item of gridData; track $index)
+                                {
+                                    <tr>
+                                        <th scope="row">{{$index+1}}</th>
+                                        <td>{{item.propertyType}}</td>
+                                        <!-- <td>North</td>
+                                        <td>1500 sqft</td>
+                                        <td>5000</td>
+                                        <td>1</td> -->
+                                        <td>
+                                            <button class="btn btn-warning btn-sm mx-2" (click)="onEdit(item)">Edit</button>
+                                            <button class="btn btn-danger btn-sm mx-2" (click)="onDelete(item.propertyTypeId)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mb-4">
+                <div class="card-header bg-warning">Add Property</div>
+                <div class="card-body">
+                    <form [formGroup]="form">
+                        <div class="form-group">
+                            <label for="name">Property Type</label>
+                            <input type="text" formControlName="propertyType" class="form-control" id="name">
+                            @if(form.controls['propertyType'].touched){
+                                <div class="text-danger">
+                                    @if(form.controls['propertyType'].errors?.['required'])
+                                    {
+                                        <span>This is required</span>
+                                    }
+                                    @if(form.controls['propertyType'].errors?.['minLength'])
+                                    {
+                                        <span>Min Length is required</span>
+                                    }
+                                </div>
+                            }
+                            <span></span>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="name">Mobile</label>
+                            <input type="text" class="form-control" id="mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Email</label>
+                            <input type="text" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Address</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div> -->
+                        @if(form.controls['propertyTypeId'].value ==0)
+                        {
+                        <button type="button" (click)="onSave()" [disabled]="!form.valid" class="btn btn-primary mt-2">Save</button>
+                        }
+                        @else{
+                        <button type="button" (click)="onUpdate()" [disabled]="!form.valid" class="btn btn-warning mt-2">Update</button>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

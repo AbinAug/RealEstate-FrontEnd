@@ -1,0 +1,53 @@
+<!-- <div class="card-header bg-warning">
+    <div class="row">
+        <div class="col-6">
+            <h5>Welcome to Real Estate Application , {{ username }}!</h5>
+        </div>
+        <div class="col-6 text-end">
+             <button routerlink="login" class="btn btn-sm btn-success">Login as Seller</button>
+        </div>
+    </div>
+</div> -->
+  <!-- <app-advancedsearch ></app-advancedsearch>  -->
+  <div class="hero">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center">
+                <h1 class="heading" data-aos="fade-up">
+                    Easiest way to find your dream home
+                </h1>
+                <form action="#" class="narrow-w form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <input type="text" class="form-control px-4"
+                        placeholder="Your Location or Price. e.g. Bengaluru" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="tiles-container">
+    @for(item of gridData; track $index)
+    {
+    <div class="tile-box">
+      <div class="tile-image">
+        <img [src]="item.thumbnailImage" />
+      </div>
+      <div class="tile-header">
+        <h3><b>{{ item.title }}</b></h3>
+      </div>
+      <div class="tile-content">
+        <p>CITY : {{ item.city }}</p>
+      </div>
+      <div class="tile-content">
+        <p>STATE : {{ item.state }}</p>
+      </div>
+      <div class="tile-content">
+        <p>ASKING PRICE : {{ item.price }}</p>
+      </div>
+      <a href="property-single.html" class="btn btn-primary py-2 px-3">Make an
+        Enquiry</a>
+        <a href="property-single.html" class="btn btn-success py-2 px-4" style="margin: 20px;">Details</a>
+    </div>
+    }
+  </div>

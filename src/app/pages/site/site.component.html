@@ -1,0 +1,161 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Property Management</h2>
+    @if(isFormView()){
+         <!-- Add/Edit Form -->
+    <div class="card mb-4">
+        <div class="card-header bg-warning">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Create/Update Property</h5>
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-sm btn-success" (click)="toggleView()">Go To List</button>       
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="siteTitle" class="form-label">Site Title</label>
+                <input type="text" #title="ngModel" required minlength="3" class="form-control" name="siteTitle" [(ngModel)]="formObj.siteTitle" id="siteTitle" placeholder="Enter Site Title">
+                @if(title.touched){
+                    <div class="text-danger">
+                        @if(title.errors?.['required'])
+                        {
+                            <span>This is required</span>
+                        }
+                        @if(title.errors?.['minLength'])
+                        {
+                            <span>Min Length is required</span>
+                        }
+                    </div>
+                }
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" name="location" [(ngModel)]="formObj.location" id="location" placeholder="Enter Location">
+              </div>
+              <div class="col-md-6">
+                <label for="propertyTypeId" class="form-label">Select Property Type ID</label>
+                <select class="form-select" name="propertyTypeId" id="propertyTypeId">
+                    <option value="1">Select Property Type</option>
+                    <option value="2">P1</option>
+                    <option value="3">P2</option>
+                </select>
+                <!-- <input type="number" class="form-control" name="propertyTypeId" [(ngModel)]="formObj.propertyTypeId" id="propertyTypeId" placeholder="Enter Property Type ID"> -->
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="formObj.city" id="city" placeholder="Enter City">
+              </div>
+              <div class="col-md-6">
+                <label for="pincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" name="pincode" [(ngModel)]="formObj.pincode" id="pincode" placeholder="Enter Pincode">
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="state" class="form-label">State</label>
+                <input type="text" class="form-control" name="state" [(ngModel)]="formObj.state" id="state" placeholder="Enter State">
+              </div>
+              <div class="col-md-6">
+                <label for="totalProperties" class="form-label">Total Properties</label>
+                <input type="number" class="form-control" name="totalProperties" [(ngModel)]="formObj.totalProperties" id="totalProperties" placeholder="Enter Total Properties">
+              </div>
+            </div>
+<!--   
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="createdDate" class="form-label">Created Date</label>
+                <input type="datetime-local" class="form-control" id="createdDate">
+              </div>
+              <div class="col-md-6">
+                <label for="lastUpdatedDate" class="form-label">Last Updated Date</label>
+                <input type="datetime-local" class="form-control" id="lastUpdatedDate">
+              </div>
+            </div> -->
+  
+            <button type="button" (click)="onSave()" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+    </div>
+    }
+   @else{
+    <!-- Property List Table -->
+    <div class="card">
+        <div class="card-header bg-warning">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Properties List</h5>
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-sm btn-success" (click)="toggleView()">Create/Update Site</button>       
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Site Title</th>
+                <th scope="col">Location</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Total Properties</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Sample Property -->
+              <tr>
+                <th scope="row">1</th>
+                <td>Example Title</td>
+                <td>Example Location</td>
+                <td>Example City</td>
+                <td>Example State</td>
+                <td>123456</td>
+                <td>10</td>
+                <td>2024-09-14</td>
+                <td>
+                  <button class="btn btn-warning btn-sm mx-2">Edit</button>
+                  <button class="btn btn-success btn-sm mx-2" (click)="openModal()">Properties</button>
+                  <button class="btn btn-danger btn-sm mx-2">Delete</button>
+                </td>
+              </tr>
+              <!-- More properties can go here -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+   }
+
+  <!-- <div class="mymodal" #propertyModel>
+    <div class="modal-dialog">
+  
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div> -->
+  </div>
