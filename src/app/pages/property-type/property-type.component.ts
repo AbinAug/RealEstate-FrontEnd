@@ -52,6 +52,7 @@ export class PropertyTypeComponent implements OnInit {
 
   onSave(){
     this.masterSrv.savePropertyType(this.form.value).subscribe((res: IAPIResponseModel)=>{
+      console.log(this.form.value);
       if(res.result){
         alert('Record Saved!!');
         this.getGridData();

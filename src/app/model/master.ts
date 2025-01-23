@@ -8,6 +8,7 @@ export interface IDashboard
 {
     propertyTypeId: number;
     propertyType:string;
+    description:string;
     title:string;
     city:string;
     state:string;

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { IAPIResponseModel, IPropertyType, Site } from '../model/master';
+import { IAPIResponseModel, IDashboard, IPropertyType, Site } from '../model/master';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,14 @@ export class MasterService {
   //Property Type
   getAllPropertyType() : Observable<IAPIResponseModel>{
     return this.http.get<IAPIResponseModel>(environment.API_URL + 'GetAllPropertyType')
+  }
+
+  savePropertyDetails(obj: IDashboard) : Observable<IAPIResponseModel>{
+    const newObh = [obj];
+    console.log(33333);
+    console.log(newObh);
+    // return this.http.post<IAPIResponseModel>(environment.API_URL + 'AddPropertyType',newObh)
+    return this.http.post<IAPIResponseModel>(environment.localhost_API_URL + 'propertydetails',newObh)
   }
 
   savePropertyType(obj: IPropertyType) : Observable<IAPIResponseModel>{
